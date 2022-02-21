@@ -1,10 +1,10 @@
 [tool]
 [tool.poetry]
 name = "cookiecutter-pypackage"
-version = "1.1.1"
+version = "1.1.2"
 description = "Cookiecutter template for a Python package"
 license = "BSD-3-Clause"
-authors = ["Xie Wei <ampedee@gmail.com>"]
+authors = ["Michel Rogers-Vallée <mrvkino@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/mrvkino/cookiecutter-pypackage"
 documentation = "https://mrvkino.github.io/cookiecutter-pypackage/"
