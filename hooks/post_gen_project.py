@@ -25,7 +25,7 @@ def execute(*args, supress_exception = False, cwd=None):
         out, err = proc.communicate()
         out = out.decode('utf-8')
         err = err.decode('utf-8')
-        if err and not supress_exception:
+        if proc.returncode and not supress_exception:
             raise Exception(err)
         else:
             return out
@@ -41,7 +41,7 @@ def init_git():
 
 
 def install_pre_commit_hooks():
-    execute(sys.executable, "-m", "pip", "install", "pre-commit==2.12.0")
+    execute(sys.executable, "-m", "pip", "install", "pre-commit")
     execute(sys.executable, "-m", "pre_commit", "install")
 
 
