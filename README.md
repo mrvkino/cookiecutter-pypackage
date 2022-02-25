@@ -12,6 +12,7 @@ conform to best practice.
 
 This tool will create Python project with the following features:
 
+* [Just](https://github.com/casey/just): A handy way to save and run project-specific commands
 * [Poetry](https://python-poetry.org/): Manage dependency, build and release
 * [Mkdocs](https://www.mkdocs.org): Writing your docs in markdown style
 * Testing with [Pytest](https://pytest.org) (unittest is still supported out of the box)
