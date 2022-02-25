@@ -1,12 +1,24 @@
-sources = {{ cookiecutter.pkg_name }}
+sources := "{{ cookiecutter.pkg_name }}"
 
-.PHONY: test format lint unittest coverage pre-commit clean
+alias help := default
+
+# Show help on empty command
+default:
+    @just --list
+
+create-environment:
+	py -m venv --prompt {{ cookiecutter.pkg_name }} .venv
+	poetry install -E doc -E dev -E test
+
+# Testing and various code cleanup
 test: format lint unittest
 
+# Various formatting
 format:
 	isort $(sources) tests
 	black $(sources) tests
 
+# Run flake8 and mypy
 lint:
 	flake8 $(sources) tests
 	{%- if cookiecutter.use_mypy == 'y' %}
@@ -16,9 +28,11 @@ lint:
 unittest:
 	pytest
 
+# Run the coverage
 coverage:
 	pytest --cov=$(sources) --cov-branch --cov-report=term-missing tests
 
+# Install all the git pre-commit hook
 pre-commit:
 	pre-commit run --all-files
 
